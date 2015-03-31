@@ -1,0 +1,13 @@
+.pp-section{
+  overflow: hidden;
+  position: relative;
+  width:100%;
+}
+.pp-move, .pp-vertical-center{
+  position: absolute !important;
+}
+.pp-background{
+  position: absolute !important;
+  width: 100%;
+  z-index: -1;
+}
