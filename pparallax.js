@@ -76,6 +76,10 @@
           var $ltrfast    = $t.find(".pp-left-to-right-fast");
           var $ltrfaster  = $t.find(".pp-left-to-right-faster");
           var $ltrfastest = $t.find(".pp-left-to-right-fastest");
+          var $gr   = $t.find(".pp-grow");
+          var $sh   = $t.find(".pp-shrink");
+          var $grs  = $t.find(".pp-grow-stay");
+          var $shs  = $t.find(".pp-shrink-stay");
           var $fi   = $t.find(".pp-fade-in");
           var $fo   = $t.find(".pp-fade-out");
           var $vc   = $t.find(".pp-vertical-center");
@@ -84,8 +88,8 @@
           $slr.css({"top": $section_y*0.72});
           $sl.css({"top": $section_y*0.5});
           $fa.css({"top": ($section_y*-0.5) - viewport_h * 0.5});
-          $stst.css({"top": Math.max($half_section_y*0.8, $section_y)}); 
-          $sst.css({"top": Math.max($half_section_y*0.5, $section_y)}); 
+          $stst.css({"top": Math.max($half_section_y*0.8, $section_y)});
+          $sst.css({"top": Math.max($half_section_y*0.5, $section_y)});
           $fst.css({"top": Math.max($half_section_y*-0.2, $section_y)});
           $vc.css({"top": Math.max(($t.height()-$vc.height())/2, 0)});
           $vc2.css({"top": Math.max(($t.height()-$vc2.height())/2, 0)});
@@ -107,6 +111,10 @@
           $rtlfast.css({"left": -$section_y*viewport_w*0.7/viewport_h});
           $rtlfaster.css({"left": -$section_y*viewport_w*0.9/viewport_h});
           $rtlfastest.css({"left": -$section_y*viewport_w*0.95/viewport_h});
+          $gr.css({"transform": "scale("+(Math.min(Math.max(1+($section_y/viewport_h)*2,0.5),2))+","+(Math.min(Math.max(1+($section_y/viewport_h)*2,0.5),2))+")"});
+          $sh.css({"transform": "scale("+(Math.max(1-($section_y/viewport_h)*2,0.3))+","+(Math.max(1-($section_y/viewport_h)*2,0.3))+")"});
+          $grs.css({"transform": "scale("+(Math.min(Math.max(1+($section_y/viewport_h)*2,0.5),1))+","+(Math.min(Math.max(1+($section_y/viewport_h)*2,0.5),1))+")"});
+          $shs.css({"transform": "scale("+(Math.max(1-($section_y/viewport_h)*2,1))+","+(Math.max(1-($section_y/viewport_h)*2,1))+")"});
           $fi.css({"opacity": 1+($section_y/viewport_h)});
           $fo.css({"opacity": 1-($section_y/viewport_h)*2});
           if(!$t.hasClass("pp-on-viewport")){
