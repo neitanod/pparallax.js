@@ -61,6 +61,7 @@
           var $gup  = $t.find(".pp-go-up");
           var $gdo  = $t.find(".pp-go-down");
           var $rtl  = $t.find(".pp-right-to-left");
+          var $rtlst  = $t.find(".pp-right-to-left-stay");
           var $rtlslow = $t.find(".pp-right-to-left-slow");
           var $rtlslower = $t.find(".pp-right-to-left-slower");
           var $rtlslowerst = $t.find(".pp-right-to-left-slower-stay");
@@ -105,6 +106,7 @@
           //$gup.css({"top": Math.max($half_section_y/2, $section_y)});
           //$gdo.css({"top": Math.max($half_section_y, $section_y)});
           $ltr.css({"left": $section_y*viewport_w*0.5/viewport_h});
+          $rtlst.css({"left": Math.max(-$section_y*viewport_w*0.3/viewport_h, 0)});
           $ltrslow.css({"left": $section_y*viewport_w*0.3/viewport_h});
           $ltrslowst.css({"left": Math.min($section_y*viewport_w*0.3/viewport_h, 0)});
           $ltrslower.css({"left": $section_y*viewport_w*0.1/viewport_h});
@@ -123,7 +125,7 @@
           $rtlfastest.css({"left": -$section_y*viewport_w*0.95/viewport_h});
           $gr.css({"transform": "scale("+(Math.min(Math.max(1+($section_y/viewport_h)*2,0.5),2))+","+(Math.min(Math.max(1+($section_y/viewport_h)*2,0.5),2))+")"});
           $sh.css({"transform": "scale("+(Math.max(1-($section_y/viewport_h)*2,0.3))+","+(Math.max(1-($section_y/viewport_h)*2,0.3))+")"});
-          $grs.css({"transform": "scale("+(Math.min(Math.max(1+($section_y/viewport_h)*2,0.5),1))+","+(Math.min(Math.max(1+($section_y/viewport_h)*2,0.5),1))+")"});
+          $grs.css({"transform": "scale("+(Math.min(Math.max(1+($section_y/viewport_h)*2,0.4),1))+","+(Math.min(Math.max(1+($section_y/viewport_h)*2,0.4),1))+")"});
           $shs.css({"transform": "scale("+(Math.max(1-($section_y/viewport_h)*2,1))+","+(Math.max(1-($section_y/viewport_h)*2,1))+")"});
           $fi.css({"opacity": 1+($section_y/viewport_h)});
           $fo.css({"opacity": 1-($section_y/viewport_h)*2});
