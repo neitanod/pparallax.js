@@ -70,6 +70,7 @@
           var $rtlfastest = $t.find(".pp-right-to-left-fastest");
           var $ltr  = $t.find(".pp-left-to-right");
           var $ltrslow    = $t.find(".pp-left-to-right-slow");
+          var $ltrslowst  = $t.find(".pp-left-to-right-slow-stay");
           var $ltrslower  = $t.find(".pp-left-to-right-slower");
           var $ltrslowerst = $t.find(".pp-left-to-right-slower-stay");
           var $ltrslowest = $t.find(".pp-left-to-right-slowest");
@@ -97,6 +98,7 @@
           //$gdo.css({"top": Math.max($half_section_y, $section_y)});
           $ltr.css({"left": $section_y*viewport_w*0.5/viewport_h});
           $ltrslow.css({"left": $section_y*viewport_w*0.3/viewport_h});
+          $ltrslowst.css({"left": Math.min($section_y*viewport_w*0.3/viewport_h, 0)});
           $ltrslower.css({"left": $section_y*viewport_w*0.1/viewport_h});
           $ltrslowerst.css({"left": Math.min($section_y*viewport_w*0.1/viewport_h, 0)});
           $ltrslowest.css({"left": $section_y*viewport_w*0.05/viewport_h});
