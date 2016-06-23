@@ -61,8 +61,8 @@
           var $gup  = $t.find(".pp-go-up");
           var $gdo  = $t.find(".pp-go-down");
           var $rtl  = $t.find(".pp-right-to-left");
-          var $rtlst  = $t.find(".pp-right-to-left-stay");
           var $rtlslow = $t.find(".pp-right-to-left-slow");
+          var $rtlst  = $t.find(".pp-right-to-left-stay");
           var $rtlslower = $t.find(".pp-right-to-left-slower");
           var $rtlslowerst = $t.find(".pp-right-to-left-slower-stay");
           var $rtlslowest = $t.find(".pp-right-to-left-slowest");
@@ -99,10 +99,10 @@
           $fst.css({"top": Math.max($half_section_y*-0.2, $section_y)});
           $vc.css({"top": Math.max(($t.height()-$vc.height())/2, 0)});
           $vc2.css({"top": Math.max(($t.height()-$vc2.height())/2, 0)});
-          $rot90.css({"transform": "rotate("+(Math.min(Math.max(90*($section_y/viewport_h),-90),90))+"deg)"});
-          $rot90c.css({"transform": "rotate("+(Math.min(Math.max(-90*($section_y/viewport_h),-90),90))+"deg)"});
-          $rot90s.css({"transform": "rotate("+(Math.min(Math.max(90*($section_y/viewport_h),-90),0))+"deg)"});
-          $rot90cs.css({"transform": "rotate("+(Math.min(Math.max(-90*($section_y/viewport_h),0),90))+"deg)"});
+          $rot90.addClass("pp-transformed").data({"pp-transform-rotate": "rotate("+(Math.min(Math.max(90*($section_y/viewport_h),-90),90))+"deg)"});
+          $rot90c.addClass("pp-transformed").data({"pp-transform-rotate": "rotate("+(Math.min(Math.max(-90*($section_y/viewport_h),-90),90))+"deg)"});
+          $rot90s.addClass("pp-transformed").data({"pp-transform-rotate": "rotate("+(Math.min(Math.max(90*($section_y/viewport_h),-90),0))+"deg)"});
+          $rot90cs.addClass("pp-transformed").data({"pp-transform-rotate": "rotate("+(Math.min(Math.max(-90*($section_y/viewport_h),0),90))+"deg)"});
           //$gup.css({"top": Math.max($half_section_y/2, $section_y)});
           //$gdo.css({"top": Math.max($half_section_y, $section_y)});
           $ltr.css({"left": $section_y*viewport_w*0.5/viewport_h});
@@ -123,12 +123,24 @@
           $rtlfast.css({"left": -$section_y*viewport_w*0.7/viewport_h});
           $rtlfaster.css({"left": -$section_y*viewport_w*0.9/viewport_h});
           $rtlfastest.css({"left": -$section_y*viewport_w*0.95/viewport_h});
-          $gr.css({"transform": "scale("+(Math.min(Math.max(1+($section_y/viewport_h)*2,0.5),2))+","+(Math.min(Math.max(1+($section_y/viewport_h)*2,0.5),2))+")"});
-          $sh.css({"transform": "scale("+(Math.max(1-($section_y/viewport_h)*2,0.3))+","+(Math.max(1-($section_y/viewport_h)*2,0.3))+")"});
-          $grs.css({"transform": "scale("+(Math.min(Math.max(1+($section_y/viewport_h)*2,0.4),1))+","+(Math.min(Math.max(1+($section_y/viewport_h)*2,0.4),1))+")"});
-          $shs.css({"transform": "scale("+(Math.max(1-($section_y/viewport_h)*2,1))+","+(Math.max(1-($section_y/viewport_h)*2,1))+")"});
+          $gr.addClass("pp-transformed").data({"pp-transform-scale": "scale("+(Math.min(Math.max(1+($section_y/viewport_h)*2,0.5),2))+","+(Math.min(Math.max(1+($section_y/viewport_h)*2,0.5),2))+")"});
+          $sh.addClass("pp-transformed").data({"pp-transform-scale": "scale("+(Math.max(1-($section_y/viewport_h)*2,0.3))+","+(Math.max(1-($section_y/viewport_h)*2,0.3))+")"});
+          $grs.addClass("pp-transformed").data({"pp-transform-scale": "scale("+(Math.min(Math.max(1+($section_y/viewport_h)*2,0.4),1))+","+(Math.min(Math.max(1+($section_y/viewport_h)*2,0.4),1))+")"});
+          $shs.addClass("pp-transformed").data({"pp-transform-scale": "scale("+(Math.max(1-($section_y/viewport_h)*2,1))+","+(Math.max(1-($section_y/viewport_h)*2,1))+")"});
           $fi.css({"opacity": 1+($section_y/viewport_h)});
           $fo.css({"opacity": 1-($section_y/viewport_h)*2});
+
+          // apply all transformations
+          var $transf = $t.find(".pp-transformed");
+          $transf.each(function(){
+            $this = $(this);
+            var rule =
+              ($this.data('pp-transform-scale')?$this.data('pp-transform-scale')+" ":"")+
+              ($this.data('pp-transform-rotate')?$this.data('pp-transform-rotate')+" ":"")
+            ;
+            $this.css({"transform": rule});
+          })
+
           if(!$t.hasClass("pp-on-viewport")){
             $t.addClass("pp-on-viewport");
             var onentercb = $t.attr('data-pp-onenterviewport');
