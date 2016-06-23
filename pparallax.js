@@ -85,6 +85,10 @@
           var $fo   = $t.find(".pp-fade-out");
           var $vc   = $t.find(".pp-vertical-center");
           var $vc2  = $t.find(".pp-vertical-center-2");
+          var $rot90   = $t.find(".pp-rotate-90");
+          var $rot90c  = $t.find(".pp-rotate-90-ccw");
+          var $rot90s   = $t.find(".pp-rotate-90-stay");
+          var $rot90cs  = $t.find(".pp-rotate-90-ccw-stay");
           $slt.css({"top": $section_y*0.8});
           $slr.css({"top": $section_y*0.72});
           $sl.css({"top": $section_y*0.5});
@@ -94,6 +98,10 @@
           $fst.css({"top": Math.max($half_section_y*-0.2, $section_y)});
           $vc.css({"top": Math.max(($t.height()-$vc.height())/2, 0)});
           $vc2.css({"top": Math.max(($t.height()-$vc2.height())/2, 0)});
+          $rot90.css({"transform": "rotate("+(Math.min(Math.max(90*($section_y/viewport_h),-90),90))+"deg)"});
+          $rot90c.css({"transform": "rotate("+(Math.min(Math.max(-90*($section_y/viewport_h),-90),90))+"deg)"});
+          $rot90s.css({"transform": "rotate("+(Math.min(Math.max(90*($section_y/viewport_h),-90),0))+"deg)"});
+          $rot90cs.css({"transform": "rotate("+(Math.min(Math.max(-90*($section_y/viewport_h),0),90))+"deg)"});
           //$gup.css({"top": Math.max($half_section_y/2, $section_y)});
           //$gdo.css({"top": Math.max($half_section_y, $section_y)});
           $ltr.css({"left": $section_y*viewport_w*0.5/viewport_h});
