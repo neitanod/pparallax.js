@@ -61,6 +61,7 @@
           var $gup  = $t.find(".pp-go-up");
           var $gdo  = $t.find(".pp-go-down");
           var $rtl  = $t.find(".pp-right-to-left");
+          var $fixed  = $t.find(".pp-fixed");
           var $rtlslow = $t.find(".pp-right-to-left-slow");
           var $rtlst  = $t.find(".pp-right-to-left-stay");
           var $rtlslower = $t.find(".pp-right-to-left-slower");
@@ -94,6 +95,7 @@
           $slr.css({"top": $section_y*0.72});
           $sl.css({"top": $section_y*0.5});
           $fa.css({"top": ($section_y*-0.5) - viewport_h * 0.5});
+          $fixed.css({"top": $section_y});
           $stst.css({"top": Math.max($half_section_y*0.8, $section_y)});
           $sst.css({"top": Math.max($half_section_y*0.5, $section_y)});
           $fst.css({"top": Math.max($half_section_y*-0.2, $section_y)});
